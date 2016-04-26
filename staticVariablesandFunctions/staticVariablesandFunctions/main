@@ -1,0 +1,96 @@
+//
+//  main.cpp
+//  staticVariablesandFunctions
+//
+//  Created by Neeraj Kumbhar on 12/01/15.
+//  Copyright (c) 2015 Neeraj Kumbhar. All rights reserved.
+//
+
+#include <iostream>
+
+using namespace std;
+
+class test
+{
+    int a;
+    static int count;
+    
+public:
+    static void showcount();
+    void set();
+    
+};
+
+class test2
+{
+    char* str;
+    
+    public:
+        test2(char * s)
+                {
+                        str = s;
+                    cout << "this is paramaterised constructor:" << endl;
+                        cout << "String is : " << str << endl;
+                }
+        test2()
+                {
+                        str = "basic";
+                    cout << "this is a basic constructor:" << str << endl;
+                }
+        ~test2()
+                {
+                        cout << "Destructor is called by default\n" ;
+                        //  delete str;
+                }
+    
+    
+    
+    
+};
+
+int test::count =100;
+
+void test::showcount()
+{
+    
+    cout << "Count is:" << count << endl;
+}
+
+void test::set()
+{
+    a = ++count;
+}
+
+int main(int argc, const char * argv[]) {
+    
+    test o1, o2;
+    
+    test o4 = *new test();
+    
+    o4.set();
+    test::showcount();
+    
+    
+    o1.set();
+    test::showcount();
+    
+    o2.set();
+    test::showcount();
+    
+   
+    test2 t1;
+    test2 t2("neeraj");
+    test2 t3 = *new test2("saiesh");
+    
+
+
+    
+    
+    
+    
+
+    
+    
+    
+    return 0;
+}
